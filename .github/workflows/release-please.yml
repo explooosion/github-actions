@@ -8,7 +8,7 @@ jobs:
     runs-on: ubuntu-latest
     strategy:
         matrix: 
-          actions: ["appengine-deploy","deploy-cloudrun", "setup-gcloud", "get-secretmanager-secrets", "upload-cloud-storage"]
+          actions: ["setupGcloudSDK", "appengine-deploy","deploy-cloudrun", "setup-gcloud", "get-secretmanager-secrets", "upload-cloud-storage"]
     steps:
       - uses: actions/checkout@v2
       - name: install
@@ -30,7 +30,7 @@ jobs:
     needs: [build]
     strategy:
         matrix: 
-          actions: ["appengine-deploy","deploy-cloudrun", "setup-gcloud", "get-secretmanager-secrets", "upload-cloud-storage"]
+          actions: ["setupGcloudSDK", "appengine-deploy","deploy-cloudrun", "setup-gcloud", "get-secretmanager-secrets", "upload-cloud-storage"]
     steps:
       - uses: GoogleCloudPlatform/release-please-action@main
         with:

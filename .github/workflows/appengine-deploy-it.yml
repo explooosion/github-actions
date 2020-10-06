@@ -31,9 +31,15 @@ jobs:
         });
         server.listen(process.env.PORT || 8080);
         EOF
-    - id: build
-      name: Build dist
-      working-directory: appengine-deploy
+    - id: build dependency
+      name: Build dependency
+      working-directory: setupGcloudSDK
+      run: |-
+        npm install
+        npm run build
+    - id: build dependency
+      name: Build dependency
+      working-directory: setupGcloudSDK
       run: |-
         npm install
         npm run build
@@ -75,6 +81,12 @@ jobs:
         });
         server.listen(process.env.PORT || 8080);
         EOF
+    - id: build dependency
+      name: Build dependency
+      working-directory: setupGcloudSDK
+      run: |-
+        npm install
+        npm run build
     - id: build
       name: Build dist
       working-directory: appengine-deploy
@@ -122,6 +134,12 @@ jobs:
         });
         server.listen(process.env.PORT || 8080);
         EOF
+    - id: build dependency
+      name: Build dependency
+      working-directory: setupGcloudSDK
+      run: |-
+        npm install
+        npm run build
     - id: build
       name: Build dist
       working-directory: appengine-deploy
